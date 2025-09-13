@@ -7,7 +7,7 @@ const userSchema= new Schema({
         required: true, 
         unique: true,
         minlength: 3,
-        maxLength: 25
+        maxlength: 25
     }, 
     email:{
         type: String,
@@ -17,13 +17,14 @@ const userSchema= new Schema({
     },
     password:{
         type: String,
-        require: true
+        required: true
     }
     //aca iran los agregafos despues
 },{
-    versionKey:false
+    versionKey:false,
     //le indica a mongoose q no le incluya el campo __v
     //__v es un controlador de versiones de documentos, no sirve en las respuestas 
+    timestamps: true
 })
 
 export const userModel = Model("User", userSchema)

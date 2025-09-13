@@ -22,8 +22,10 @@ Bonus: Implementación de validaciones básicas o utilizando express-validator.
 
 NOTAS
 
-embedido: uno dentro de otro o referenciado por otro :P
-schema: define las estructuras de los documentos en una coleccion de mongo, especificando sus campos y sus tipos de datos , validaciones y asi para garantizar la integridad y consistencia de los datos
+* embedido: uno dentro de otro o referenciado por otro :P
+* schema: define las estructuras de los documentos en una coleccion de mongo, especificando sus campos y sus tipos de datos , validaciones y asi para garantizar la integridad y consistencia de los datos
+* ObjectID es una clase y ObjectIds son objetos, 
+
 RELACIONES
 1->1
 user->perfil
@@ -33,3 +35,6 @@ user->article
 
 M->M
 article->tag
+
+PREGUNTAR
+* esto no entendi bien "Cuando conviertes un ObjectId en una cadena usando toString(), obtienes una cadena hexadecimal de 24 caracteres" esta en la docu 
