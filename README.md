@@ -19,3 +19,17 @@ Se debe investigar, aplicar y justificar:
 ● Cómo crear un endpoint que permita agregar un nuevo vínculo en una relación
 muchos a muchos.
 Bonus: Implementación de validaciones básicas o utilizando express-validator.
+
+NOTAS
+
+embedido: uno dentro de otro o referenciado por otro :P
+schema: define las estructuras de los documentos en una coleccion de mongo, especificando sus campos y sus tipos de datos , validaciones y asi para garantizar la integridad y consistencia de los datos
+RELACIONES
+1->1
+user->perfil
+
+1->M
+user->article
+
+M->M
+article->tag
