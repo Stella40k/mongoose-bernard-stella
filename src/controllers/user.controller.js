@@ -64,8 +64,7 @@ export const getUser = async(req, res) =>{
 };
 export const updateUser = async(req, res)=>{
     try {
-        const user = await userModel.findByIdAndUpdate(req.params.id, req.body,
-            {new: true});
+        const user = await userModel.findByIdAndUpdate(req.params.id, req.body,{new: true});
             if(!user){
                 return res.status(404).json({
                     ok: false,
@@ -77,6 +76,7 @@ export const updateUser = async(req, res)=>{
                 msg: "usuario actualizado"
             });
         } catch (error) {
+            console.log(error);
         res.status(500).json({
             ok: false,
             msg: "error al actualizar el usuario"
