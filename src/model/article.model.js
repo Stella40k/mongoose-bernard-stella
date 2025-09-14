@@ -24,7 +24,11 @@ const articleSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
         require: true
-    }
+    },
+    tags:[{
+        type: Schema.Types.ObjectId,
+        ref: "tag"
+    }]
 },{
     versionKey: false,
     timestamps: true
