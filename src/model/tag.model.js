@@ -1,4 +1,5 @@
-import { Model, Schema, Types } from "mongoose";
+import { Model, Schema } from "mongoose";
+import mongoose from "mongoose"
 
 const tagSchema = new Schema({
     name:{
@@ -19,4 +20,4 @@ const tagSchema = new Schema({
     timestamps: false
 });
 
-export const tagModel=Model("Tag", tagSchema)
+export const tagModel = mongoose.model("Tag", tagSchema)

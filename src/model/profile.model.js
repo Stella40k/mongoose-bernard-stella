@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import mongoose from "mongoose";
 
 const profileSchema = new Schema({
     user:{
@@ -29,4 +30,4 @@ const profileSchema = new Schema({
     timestamps: false
 })
 
-export const Profile = model("Profile", profileSchema)
+export const Profile = mongoose.model("Profile", profileSchema)

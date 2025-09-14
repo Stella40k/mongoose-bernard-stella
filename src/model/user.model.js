@@ -1,5 +1,5 @@
-import { Model, Schema, Type} from "mongoose";
-
+import { Schema} from "mongoose";
+import mongoose from "mongoose";
 
 const userSchema= new Schema({
     username:{
@@ -18,7 +18,7 @@ const userSchema= new Schema({
     password:{
         type: String,
         required: true
-    }
+    },
     //aca iran los agregafos despues
 },{
     versionKey:false,
@@ -27,4 +27,4 @@ const userSchema= new Schema({
     timestamps: true
 })
 
-export const userModel = Model("User", userSchema)
+export const userModel = mongoose.model("User", userSchema)

@@ -2,7 +2,8 @@ import {userModel} from '../model/user.model.js'
 
 export const createUser = async(req, res)=>{
     try {
-        const newUser = new userModel.create({
+        const {username, email, password} = req.body;
+        const newUser = await userModel.create({
             username,
             email,
             password
