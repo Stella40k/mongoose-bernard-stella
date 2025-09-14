@@ -25,6 +25,7 @@ NOTAS
 * embedido: uno dentro de otro o referenciado por otro :P
 * schema: define las estructuras de los documentos en una coleccion de mongo, especificando sus campos y sus tipos de datos , validaciones y asi para garantizar la integridad y consistencia de los datos
 * ObjectID es una clase y ObjectIds son objetos, 
+* Populate: funcion propia de mongoose q reemplaza los objectIds por documentos de la coleccion refenciada. Mongoose verifica q algun doc esta ref con algo, cuando usamos .populate("algo") hace otra consulta automatica a la coleccion referenciada, ahi reemplaza los objectIds por los docs completos de la referencia
 
 RELACIONES
 1->1
