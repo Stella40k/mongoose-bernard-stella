@@ -114,3 +114,38 @@ export const deleteArticle = async(req, res) =>{
         });
     }
 };
+export const addTagArticle = async(req, res) =>{
+    try {
+        const{ articleId, tagId }= req.body;
+        const article = await articleModel .findById(articleId);
+        if(!article)
+            return res.status(404).json({
+                ok: false,
+                msg: "articulo no encontrado"
+        });
+        const tag = await tagModel.findById(tagId);
+        if(!tag)
+            return res.status(404).json({
+                ok: false,
+                msg: "etiqueta no encontrada"
+        });
+        if(article.tags.includes(tagId)){
+            return res.status(400).json({
+                ok: false,
+                msg: "el articulo ya tiene ese tag"
+            });
+        }
+        article.tags.push(tagId);
+        await article.save();
+        res.status(200).json({
+            ok: true,
+            msg:"etiqueta aagregada al articulo",
+            data: article
+        });
+    } catch (error) {
+        res.status(500).json({
+            ok: false,
+            msg: "error al agregar la etiqueta"
+        });
+    }
+}

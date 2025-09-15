@@ -39,6 +39,10 @@ user->article
 
 M->M
 article->tag
+* si borro user -> borro profile y sus articles
+* si borro profile -> solo se borra eso, user sigue intacto
+* si borro tal -> elimino sus documentos de los articles donde hacia ref
+* si elimino tag -> solo borro article
 
 PREGUNTAR
 * esto no entendi bien "Cuando conviertes un ObjectId en una cadena usando toString(), obtienes una cadena hexadecimal de 24 caracteres" esta en la docu 

@@ -28,7 +28,11 @@ const articleSchema = new mongoose.Schema({
     tags:[{
         type: Schema.Types.ObjectId,
         ref: "tag"
-    }]
+    }],
+/*     isDeleted:{
+        type: Boolean,
+        default: false
+    } */
 },{
     versionKey: false,
     timestamps: true
