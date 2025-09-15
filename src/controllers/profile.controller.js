@@ -45,6 +45,12 @@ export const getProfiles = async(req, res)=>{
             //username email es la info q quiero traer del documento relacionado(user)
             "user", "username email"
         );
+        if (profiles.length === 0) {
+            return res.status(200).json({
+                ok: true,
+                msg: "en espera de que se agreguen los perfiles"
+            });
+        }
         res.status(200).json({
             ok: true,
             msg: profiles

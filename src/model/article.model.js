@@ -12,7 +12,7 @@ const articleSchema = new mongoose.Schema({
     content:{
         type: String,
         required: true,
-        minlength: 10
+        minlength: 3
     },
     status:{
         type: String,

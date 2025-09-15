@@ -32,7 +32,13 @@ export const getUsers = async(req, res)=>{
     try {
         //no usare populate pq si necesito saber algo de user se hace su consulta propia
         //el populate lo usare en los hijos de user pq trae los datos relacionados
-        const users = await userModel.find()
+        const users = await userModel.find();
+        if (users.length === 0) {
+            return res.status(200).json({
+                ok: true,
+                msg: "en espera de que se agreguen los usuarios"
+            });
+        }
         res.status(200).json({
             ok: true,
             msg: users
@@ -100,7 +106,6 @@ export const deleteUser = async(req, res) => {
 
         //eliminar en cascada article
         await articleModel.deleteMany({author: user._id});
-        
         res.status(200).json({
             ok: true,
             msg: "usuario eliminado"

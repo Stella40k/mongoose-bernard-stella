@@ -43,6 +43,12 @@ export const getTag = async(req, res)=>{
 export const getTags = async(req, res)=>{
     try {
         const tags = await tagModel.find();
+        if (tags.length === 0) {
+            return res.status(200).json({
+                ok: true,
+                msg: "en espera de que se agreguen las etiquetas"
+            });
+        }
         res.status(200).json({
             ok: true,
             msg: tags
@@ -57,7 +63,7 @@ export const getTags = async(req, res)=>{
 export const updateTag = async(req, res)=>{
     try {
         const{name, description} = req.body;                 //pedir q expliquen mas de esta parte pq entiendo pero no
-        const tag = await tagModel.findByIdAndUpdate(req.params.id, {name, description,}, {new: true});
+        const tag = await tagModel.findByIdAndUpdate(req.params.id, {name, description}, {new: true});
         if(!tag){
             return res.status(404).json({
                 ok: false,

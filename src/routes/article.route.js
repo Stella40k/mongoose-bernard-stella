@@ -4,7 +4,8 @@ import {
     getArticles,
     getArticle,
     updateArticle,
-    deleteArticle
+    deleteArticle,
+    addTagArticle
 } from "../controllers/article.controller.js";
 
 export const articleRouter = Router();
@@ -13,4 +14,4 @@ articleRouter.get("/article/:id", getArticle);
 articleRouter.get("/article", getArticles);
 articleRouter.put("/article/:id", updateArticle);
 articleRouter.delete("/article/:id", deleteArticle);
-articleRouter.post("/articles/add-tag", addTagToArticle);
+articleRouter.post("/articles/add-tag", addTagArticle);

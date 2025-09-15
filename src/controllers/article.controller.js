@@ -26,6 +26,8 @@ export const createArticle = async (req, res)=>{
             data: newArticle
         });
     } catch (error) {
+        console.log(error)
+
         res.status(500).json({
             ok: false,
             msg: "error al crear el articulo"
@@ -37,11 +39,18 @@ export const getArticles = async(req, res) =>{
         const articles = await articleModel.find().populate(
             "author", "username email").populate(
             "tags", "name description");
+        if (articles.length === 0) {
+            return res.status(200).json({
+                ok: true,
+                msg: "en espera de que se agreguen los articulos"
+            });
+        }
         res.status(200).json({
             ok:true,
             data: articles
         });
     } catch (error) {
+        console.log(error)
         res.status(500).json({
             ok: false,
             msg: "error al obtener los articulos"
