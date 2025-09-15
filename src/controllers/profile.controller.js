@@ -9,6 +9,7 @@ export const createProfile = async(req, res)=>{
             data: newProfile
         });
     } catch (error) {
+    console.log(error)
       res.status(500).json({
         ok: false,
         msg: "error al crear el perfil"

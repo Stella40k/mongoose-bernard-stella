@@ -20,9 +20,6 @@ const userSchema= new Schema({
         required: true,
         select: false //cuando llame a un usuario por alguna ruta no se vera la contraseña pero si en la bd
     },
-    tasks: [
-        
-    ]
     //aca iran los agregafos despues
 },{
     versionKey:false,
