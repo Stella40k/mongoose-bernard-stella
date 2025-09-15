@@ -27,9 +27,12 @@ NOTAS
 * ObjectID es una clase y ObjectIds son objetos, 
 * Populate: funcion propia de mongoose q reemplaza los objectIds por documentos de la coleccion refenciada. Mongoose verifica q algun doc esta ref con algo, cuando usamos .populate("algo") hace otra consulta automatica a la coleccion referenciada, ahi reemplaza los objectIds por los docs completos de la referencia
 
+
 RELACIONES
 1->1
 user->perfil
+si elimino user, se elimina el perfil
+si elimino el perfil el user permanece
 
 1->M
 user->article

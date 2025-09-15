@@ -1,4 +1,4 @@
-import { Model, Schema} from "mongoose";
+import { Schema} from "mongoose";
 import mongoose from "mongoose";
 
 const articleSchema = new mongoose.Schema({
