@@ -71,11 +71,8 @@ export const getArticle = async(req, res) =>{
     }
 };
 export const updateArticle = async(req, res) =>{
-    try {
-        const article = await articleModel.findById(req.params.id, req.body,
-        {new: true}).populate(
-            "author", "username email").populate(
-            "tags", "name description");
+    try {//buscar diferencia: findById, findByIdAndDelete
+        const article = await articleModel.findByIdAndDelete(req.params.id);
         if(!article){
             return res.status(404).json({
                 ok: false,

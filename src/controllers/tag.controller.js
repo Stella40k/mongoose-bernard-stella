@@ -1,4 +1,5 @@
-import {tagModel} from "../model/tag.model.js"
+import {tagModel} from "../model/tag.model.js";
+import { articleModel } from "../model/article.model.js";
 
 export const createTag = async(req, res)=>{
     try {
@@ -84,6 +85,14 @@ export const deleteTag = async(req, res)=>{
                 msg: "etiqueta no encontrada"
             });
         }
+
+        //eliminamos las referencias cuando se elimina
+        await articleModel.updateMany(
+            {tags: tag._id},
+            {$pull: {tags: tag._id}}
+            //$pull es como decirle al mongo q saque los valores
+            //o docs del arrays si existe, borramos o sacamos el objId del tag eliminado
+        );
         res.status(200).json({
             ok: true,
             msg: "etiqueta eliminada correctamente"

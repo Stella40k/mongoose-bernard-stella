@@ -1,5 +1,6 @@
 import {userModel} from '../model/user.model.js'
 import { Profile } from '../model/profile.model.js';
+import { articleModel } from '../model/article.model.js';
 
 export const createUser = async(req, res)=>{
     try {
@@ -94,8 +95,12 @@ export const deleteUser = async(req, res) => {
             })
         }
         //eliminar el perfil asociado
-        await Profile.findByIdAndDelete({user: user._id});
+        //preguntar diferencia entre estos: findByIdAndDelete, findOneAndDelete
+        await Profile.findOneAndDelete({user: user._id});
 
+        //eliminar en cascada article
+        await articleModel.deleteMany({author: user._id});
+        
         res.status(200).json({
             ok: true,
             msg: "usuario eliminado"
